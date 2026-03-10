@@ -11,6 +11,13 @@ cask "screenalert" do
 
   app "ScreenAlert.app"
 
+  # Automatise la suppression de la quarantaine (Homebrew 5.0+)
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/ScreenAlert.app"],
+                   sudo: false
+  end
+
   zap trash: [
     "~/Library/Preferences/com.screenalert.app.plist",
   ]
