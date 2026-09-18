@@ -16,7 +16,5 @@ cask "screenalert" do
     run "/usr/bin/xattr", args: ["-rd", "com.apple.quarantine", "{{appdir}}/ScreenAlert.app"]
   end
 
-  zap trash: [
-    "~/Library/Preferences/com.screenalert.app.plist",
-  ]
+  zap trash: "~/Library/Preferences/com.screenalert.app.plist"
 end
